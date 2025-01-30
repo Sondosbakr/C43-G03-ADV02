@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,19 +25,44 @@ namespace Assignment02ADV
                 left++;
                 right--;
             }
+        }
+        #endregion
+
+        #region Question03 Assignment01
+        public static List<int> GetEvenNumbers(List<int> list)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] % 2 == 0)
+                    result.Add(list[i]);
+            }
+            return result;
         } 
         #endregion
+
+
         static void Main(string[] args)
         {
             #region Question02 Asignment01
-            ArrayList arraylist = new ArrayList(5) { 1, 2, 3, 4, 5 };
-            ReverseArrayList(arraylist);
-            foreach (int item in arraylist)
-            {
-                Console.WriteLine(item + " ");
-            } 
+            //ArrayList arraylist = new ArrayList(5) { 1, 2, 3, 4, 5 };
+            //ReverseArrayList(arraylist);
+            //foreach (int item in arraylist)
+            //{
+            //    Console.WriteLine(item + " ");
+            //}
             #endregion
 
+            #region Question03 Assignment01
+            //You are given a list of integers. Your task is to find and return a new list
+            //containing only the even numbers from the given list.
+            List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            List<int> result = GetEvenNumbers(list);
+            foreach (int item in result)
+            {
+                Console.WriteLine(item);
+            } 
+            #endregion
 
 
 
