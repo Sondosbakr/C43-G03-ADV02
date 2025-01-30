@@ -216,6 +216,28 @@ namespace Assignment02ADV
         }
         #endregion
 
+        #region Question11 Assignment02
+        public static Queue<int> ReverseFirstKElements(Queue<int>queue, int k)
+        {
+            Stack<int> stack = new Stack<int>();
+            for (int i = 0; i < queue.Count; i++)
+            {
+                stack.Push(queue.Dequeue());
+            }
+
+            while(stack.Count > 0)
+            {
+                queue.Enqueue(stack.Pop());
+            }
+
+            for(int i =0; i< queue.Count - k; i++)
+            {
+                queue.Enqueue(queue.Dequeue());
+            }
+            return queue;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -402,8 +424,18 @@ namespace Assignment02ADV
             #endregion
 
             #region Question10 Assignment02
-            ArrayList arrayList = new ArrayList() { 1,2,3,7,5};
-            FindSubarrayWithTargetSum(arrayList, 12);
+            //ArrayList arrayList = new ArrayList() { 1,2,3,7,5};
+            //FindSubarrayWithTargetSum(arrayList, 12);
+            #endregion
+
+            #region Question11 Asignment02
+            Queue<int> queue = new Queue<int>(new int[] { 1, 2, 3, 4, 5});
+
+            Queue<int> result =  ReverseFirstKElements(queue, 3);
+            foreach (var item in result)
+            {
+                Console.WriteLine(item);
+            }
             #endregion
 
         }
