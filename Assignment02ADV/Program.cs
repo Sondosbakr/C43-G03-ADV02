@@ -185,6 +185,37 @@ namespace Assignment02ADV
             return result;
         }
         #endregion
+
+        #region Question10 Assignment02
+        public static void FindSubarrayWithTargetSum(ArrayList arraylist, int target)
+        {
+            int start = 0, currentSum = 0;
+
+            for (int end = 0; end < arraylist.Count; end++)
+            {
+                int num = Convert.ToInt32(arraylist[end]);
+                currentSum += num;
+
+                while (currentSum > target && start < end)
+                {
+                    currentSum -= Convert.ToInt32(arraylist[start]);
+                    start++;
+                }
+
+                if (currentSum == target)
+                {
+                    for (int i = start; i <= end; i++) 
+                    {
+                        Console.Write(arraylist[i] + " ");
+                    }
+                    return;
+                }
+            }
+
+            Console.WriteLine("No subarray found with the target sum.");
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -326,48 +357,53 @@ namespace Assignment02ADV
             #endregion
 
             #region Question09 Assignment02
-            bool isParesd;
-            int size1;
-            int size2;
-            do
-            {
-                Console.WriteLine("Enter The Size of the firsy array");
-                isParesd = int.TryParse(Console.ReadLine(), out size1);
-            } while (!isParesd || size1 <= 0);
+            //bool isParesd;
+            //int size1;
+            //int size2;
+            //do
+            //{
+            //    Console.WriteLine("Enter The Size of the firsy array");
+            //    isParesd = int.TryParse(Console.ReadLine(), out size1);
+            //} while (!isParesd || size1 <= 0);
 
-            do
-            {
-                Console.WriteLine("Enter The Size of the second array");
-                isParesd = int.TryParse(Console.ReadLine(), out size2);
-            } while (!isParesd || size2 <= 0);
+            //do
+            //{
+            //    Console.WriteLine("Enter The Size of the second array");
+            //    isParesd = int.TryParse(Console.ReadLine(), out size2);
+            //} while (!isParesd || size2 <= 0);
 
-            int[] arr1 = new int[size1];
-            int[] arr2 = new int[size2];
+            //int[] arr1 = new int[size1];
+            //int[] arr2 = new int[size2];
 
-            for (int i = 0; i < arr1.Length; i++)
-            {
-                do
-                {
-                    Console.Write($"Enter the number of array1 {i + 1} : ");
-                    isParesd = int.TryParse(Console.ReadLine(), out arr1[i]);
-                } while (!isParesd);
-            }
-            Console.WriteLine("-----------------------------------");
-            for (int i = 0; i < arr2.Length; i++)
-            {
-                do
-                {
-                    Console.Write($"Enter the number of array2 {i + 1} : ");
-                    isParesd = int.TryParse(Console.ReadLine(), out arr2[i]);
-                } while (!isParesd);
-            }
-            List<int> list = FindIntersection(arr1, arr2);
-            Console.WriteLine("Intersecotion ");
-            foreach (var item in list)
-            {
-                Console.Write($"[ {item} ]");
-            }
-            Console.WriteLine();
+            //for (int i = 0; i < arr1.Length; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write($"Enter the number of array1 {i + 1} : ");
+            //        isParesd = int.TryParse(Console.ReadLine(), out arr1[i]);
+            //    } while (!isParesd);
+            //}
+            //Console.WriteLine("-----------------------------------");
+            //for (int i = 0; i < arr2.Length; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write($"Enter the number of array2 {i + 1} : ");
+            //        isParesd = int.TryParse(Console.ReadLine(), out arr2[i]);
+            //    } while (!isParesd);
+            //}
+            //List<int> list = FindIntersection(arr1, arr2);
+            //Console.WriteLine("Intersecotion ");
+            //foreach (var item in list)
+            //{
+            //    Console.Write($"[ {item} ]");
+            //}
+            //Console.WriteLine();
+            #endregion
+
+            #region Question10 Assignment02
+            ArrayList arrayList = new ArrayList() { 1,2,3,7,5};
+            FindSubarrayWithTargetSum(arrayList, 12);
             #endregion
 
         }
