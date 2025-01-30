@@ -169,6 +169,22 @@ namespace Assignment02ADV
             }
         }
         #endregion
+
+        #region Question09 Assignment02
+        public static List<int> FindIntersection(int[] arr1, int[] arr2)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i<arr1.Length; i++)
+            {
+                for (int j = 0; j<arr2.Length; j++)
+                {
+                    if (arr1[i] == arr2[j] && !result.Contains(arr1[i]))
+                        result.Add(arr1[i]);
+                }
+            }
+            return result;
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -301,12 +317,57 @@ namespace Assignment02ADV
             #endregion
 
             #region Question08 Assignment02
-            Stack<int> stack = new Stack<int>();
-            int[] array = { 1, 2, 3, 4, 5, 6, 7 };
-            int target;
-            Console.WriteLine("Enter the Number ");
-            int.TryParse(Console.ReadLine(), out target);
-            PushAndSearch(stack, array, target);
+            //Stack<int> stack = new Stack<int>();
+            //int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+            //int target;
+            //Console.WriteLine("Enter the Number ");
+            //int.TryParse(Console.ReadLine(), out target);
+            //PushAndSearch(stack, array, target);
+            #endregion
+
+            #region Question09 Assignment02
+            bool isParesd;
+            int size1;
+            int size2;
+            do
+            {
+                Console.WriteLine("Enter The Size of the firsy array");
+                isParesd = int.TryParse(Console.ReadLine(), out size1);
+            } while (!isParesd || size1 <= 0);
+
+            do
+            {
+                Console.WriteLine("Enter The Size of the second array");
+                isParesd = int.TryParse(Console.ReadLine(), out size2);
+            } while (!isParesd || size2 <= 0);
+
+            int[] arr1 = new int[size1];
+            int[] arr2 = new int[size2];
+
+            for (int i = 0; i < arr1.Length; i++)
+            {
+                do
+                {
+                    Console.Write($"Enter the number of array1 {i + 1} : ");
+                    isParesd = int.TryParse(Console.ReadLine(), out arr1[i]);
+                } while (!isParesd);
+            }
+            Console.WriteLine("-----------------------------------");
+            for (int i = 0; i < arr2.Length; i++)
+            {
+                do
+                {
+                    Console.Write($"Enter the number of array2 {i + 1} : ");
+                    isParesd = int.TryParse(Console.ReadLine(), out arr2[i]);
+                } while (!isParesd);
+            }
+            List<int> list = FindIntersection(arr1, arr2);
+            Console.WriteLine("Intersecotion ");
+            foreach (var item in list)
+            {
+                Console.Write($"[ {item} ]");
+            }
+            Console.WriteLine();
             #endregion
 
         }
