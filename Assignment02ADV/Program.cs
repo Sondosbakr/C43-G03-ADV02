@@ -135,6 +135,40 @@ namespace Assignment02ADV
         }
         #endregion
 
+        #region Question08 Assignment02
+        public static void PushAndSearch(Stack<int> stack, int[] numbers, int target)
+        {
+            foreach (var item in numbers)
+            {
+                stack.Push(item);
+            }
+
+            Stack<int> tempStack = new Stack<int>();
+            int count = 0;
+            bool found = false;
+            
+            while(stack.Count > 0)
+            {
+                var item = stack.Pop();
+                tempStack.Push(item);
+                count++;
+                if (item == target)
+                {
+                    found = true;
+                    Console.WriteLine($"Target was found successfully and the count = {count}");
+                    break;
+                }
+            }
+            while(tempStack.Count > 0)
+            {
+                stack.Push(tempStack.Pop());
+            }
+            if(!found)
+            {
+                Console.WriteLine("Target was not found");
+            }
+        }
+        #endregion
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -257,13 +291,22 @@ namespace Assignment02ADV
             #endregion
 
             #region Question06 Asssignment02
-            //6. Given an array list , implement a function to remove all odd numbers from it.
-            List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            List<int> result = RemoveOddNumbers(list);
-            foreach (var item in result)
-            {
-                Console.WriteLine(item);
-            }
+            ////6. Given an array list , implement a function to remove all odd numbers from it.
+            //List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //List<int> result = RemoveOddNumbers(list);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Question08 Assignment02
+            Stack<int> stack = new Stack<int>();
+            int[] array = { 1, 2, 3, 4, 5, 6, 7 };
+            int target;
+            Console.WriteLine("Enter the Number ");
+            int.TryParse(Console.ReadLine(), out target);
+            PushAndSearch(stack, array, target);
             #endregion
 
         }
