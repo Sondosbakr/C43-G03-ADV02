@@ -60,6 +60,21 @@ namespace Assignment02ADV
         }
         #endregion
 
+        #region Question02 Assignment02 (IsPalindrome) 
+        public static bool IsPalindrom(int num)
+        {
+            int digit, reversed = 0;
+            int original = num;
+            while (num > 0)
+            {
+                digit = num % 10;
+                reversed = reversed * 10 + digit;
+                num /= 10;
+            }
+            return original == reversed;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -85,60 +100,75 @@ namespace Assignment02ADV
             #region Question05 Assignment05
             //Given a string, find the first non-repeated character in it and return its index.
             //If there is no such character, return . Hint: you can use dictionary
-            string str = "SWSSIO";
-            int index = FirstNonReapetedCharIndex(str);
-            Console.WriteLine(index);
+            //string str = "SWSSIO";
+            //int index = FirstNonReapetedCharIndex(str);
+            //Console.WriteLine(index);
 
             #endregion
 
             #region Question01 Assignment02
+            //bool isParsed;
+            //int size;
+            //int numberofquery;
+            //do
+            //{
+            //    Console.WriteLine("Enter the size of array");
+            //    isParsed = int.TryParse(Console.ReadLine(), out size);
+            //} while (!isParsed || size <= 0);
+
+            //do
+            //{
+            //    Console.WriteLine("Enter the number of query");
+            //    int.TryParse(Console.ReadLine(), out numberofquery);
+            //} while (!isParsed || numberofquery <= 0);
+
+            //int[] array = new int[size];
+
+            //for (int i = 0; i < array.Length; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write($"Enter the number {i + 1} : ");
+            //        isParsed = int.TryParse(Console.ReadLine(), out array[i]);
+            //    } while (!isParsed);
+            //}
+
+            //int[] queries = new int[numberofquery];
+            //for (int i = 0; i < queries.Length; i++)
+            //{
+            //    do
+            //    {
+            //        Console.Write($"Enter the query {i + 1} : ");
+            //        isParsed = int.TryParse(Console.ReadLine(), out queries[i]);
+            //    } while (!isParsed);
+            //}
+
+            //foreach (var query in queries)
+            //{
+            //    int count = 0;
+            //    foreach (var item in array)
+            //    {
+            //        if (item > query)
+            //            count++;
+            //    }
+            //    Console.WriteLine("Output");
+            //    Console.WriteLine(count);
+            //} 
+            #endregion
+
+            #region Question02 Assignment02
             bool isParsed;
-            int size;
-            int numberofquery;
+            int number;
             do
             {
-                Console.WriteLine("Enter the size of array");
-                isParsed = int.TryParse(Console.ReadLine(), out size);
-            } while (!isParsed || size <= 0);
+                Console.WriteLine("Enter the number ");
+                isParsed = int.TryParse(Console.ReadLine(), out number); 
+            } while (!isParsed);
 
-            do
-            {
-                Console.WriteLine("Enter the number of query");
-                int.TryParse(Console.ReadLine(), out numberofquery);
-            } while (!isParsed || numberofquery <= 0);
-
-            int[] array = new int[size];
-
-            for (int i = 0; i < array.Length; i++)
-            {
-                do
-                {
-                    Console.Write($"Enter the number {i + 1} : ");
-                    isParsed = int.TryParse(Console.ReadLine(), out array[i]);
-                } while (!isParsed);
-            }
-
-            int[] queries = new int[numberofquery];
-            for (int i = 0; i < queries.Length; i++)
-            {
-                do
-                {
-                    Console.Write($"Enter the query {i + 1} : ");
-                    isParsed = int.TryParse(Console.ReadLine(), out queries[i]);
-                } while (!isParsed);
-            }
-
-            foreach (var query in queries)
-            {
-                int count = 0;
-                foreach (var item in array)
-                {
-                    if (item > query)
-                        count++;
-                }
-                Console.WriteLine("Output");
-                Console.WriteLine(count);
-            } 
+            if(IsPalindrom(number))
+                Console.WriteLine("Yes");
+            else
+                Console.WriteLine("NO");
             #endregion
 
         }
