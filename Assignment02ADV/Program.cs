@@ -75,6 +75,21 @@ namespace Assignment02ADV
         }
         #endregion
 
+        #region Question03 Assignment02(Reverse Queue)
+        public static void ReverseQueue(Queue<int> queue)
+        {
+            Stack<int> stack = new Stack<int>();
+            while(queue.Count > 0)
+            {
+                stack.Push(queue.Dequeue());
+            }
+
+            while (stack.Count > 0)
+                queue.Enqueue(stack.Pop());
+            
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -157,18 +172,34 @@ namespace Assignment02ADV
             #endregion
 
             #region Question02 Assignment02
-            bool isParsed;
-            int number;
-            do
-            {
-                Console.WriteLine("Enter the number ");
-                isParsed = int.TryParse(Console.ReadLine(), out number); 
-            } while (!isParsed);
+            //bool isParsed;
+            //int number;
+            //do
+            //{
+            //    Console.WriteLine("Enter the number ");
+            //    isParsed = int.TryParse(Console.ReadLine(), out number); 
+            //} while (!isParsed);
 
-            if(IsPalindrom(number))
-                Console.WriteLine("Yes");
-            else
-                Console.WriteLine("NO");
+            //if(IsPalindrom(number))
+            //    Console.WriteLine("Yes");
+            //else
+            //    Console.WriteLine("NO");
+            #endregion
+
+            #region Question03 Assignment02(Reverse Queue)
+            Queue<int> queue = new Queue<int>();
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+            queue.Enqueue(3);
+            queue.Enqueue(4);
+            queue.Enqueue(5);
+
+            ReverseQueue(queue);
+            foreach (int item in queue)
+            {
+                Console.WriteLine(item);
+            }
+
             #endregion
 
         }
