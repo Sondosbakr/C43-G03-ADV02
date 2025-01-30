@@ -429,10 +429,23 @@ namespace Assignment02ADV
             #endregion
 
             #region Question11 Asignment02
-            Queue<int> queue = new Queue<int>(new int[] { 1, 2, 3, 4, 5});
+            //Queue<int> queue = new Queue<int>(new int[] { 1, 2, 3, 4, 5});
 
-            Queue<int> result =  ReverseFirstKElements(queue, 3);
-            foreach (var item in result)
+            //Queue<int> result =  ReverseFirstKElements(queue, 3);
+            //foreach (var item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Question07 Assignment02
+            Queue queue = new Queue();
+
+            queue.Enqueue(1);            
+            queue.Enqueue("Apple");      
+            queue.Enqueue(5.28);
+
+            foreach (var item in queue)
             {
                 Console.WriteLine(item);
             }
