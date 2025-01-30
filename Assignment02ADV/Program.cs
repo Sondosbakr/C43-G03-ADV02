@@ -90,6 +90,36 @@ namespace Assignment02ADV
         }
         #endregion
 
+        #region Question05 Assignment02
+        public static int[] RemoveDuplicates(int[] array)
+        {
+            int[] tempArray = new int[array.Length];
+            int index = 0;
+
+            for(int i = 0;i < array.Length;i++)
+            {
+                bool isDuplicate = false;
+                for(int j = 0; j < index; j++)
+                {
+                    if (array[i] == tempArray[j])
+                        isDuplicate = true;
+                }
+
+                if (!isDuplicate)
+                {
+                    tempArray[index] = array[i];
+                    index++;
+                }
+            }
+            int[] result = new int[index];
+            for (int i = 0; i < index; i++)
+            {
+                result[i] = tempArray[i];
+            }
+            return result;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -187,19 +217,28 @@ namespace Assignment02ADV
             #endregion
 
             #region Question03 Assignment02(Reverse Queue)
-            Queue<int> queue = new Queue<int>();
-            queue.Enqueue(1);
-            queue.Enqueue(2);
-            queue.Enqueue(3);
-            queue.Enqueue(4);
-            queue.Enqueue(5);
+            //Queue<int> queue = new Queue<int>();
+            //queue.Enqueue(1);
+            //queue.Enqueue(2);
+            //queue.Enqueue(3);
+            //queue.Enqueue(4);
+            //queue.Enqueue(5);
 
-            ReverseQueue(queue);
-            foreach (int item in queue)
+            //ReverseQueue(queue);
+            //foreach (int item in queue)
+            //{
+            //    Console.WriteLine(item);
+            //}
+
+            #endregion
+
+            #region Question05 Assignment02
+            int[] array = new int[5] { 1,2,2,3,3};
+            int[] result = RemoveDuplicates(array);
+            foreach (int item in result)
             {
                 Console.WriteLine(item);
             }
-
             #endregion
 
         }
