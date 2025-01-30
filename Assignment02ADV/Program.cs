@@ -120,6 +120,21 @@ namespace Assignment02ADV
         }
         #endregion
 
+        #region Question06 Assignment029(Remove Odd Numbers)
+        public static List<int> RemoveOddNumbers(List<int> list)
+        {
+            List<int> result = new List<int>();
+            for (int i = 0; i < list.Count; i++)
+            {
+                if (list[i] % 2 ==0)
+                {
+                    result.Add(list[i]);
+                }     
+            }   
+            return result;
+        }
+        #endregion
+
         static void Main(string[] args)
         {
             #region Question02 Asignment01
@@ -233,9 +248,19 @@ namespace Assignment02ADV
             #endregion
 
             #region Question05 Assignment02
-            int[] array = new int[5] { 1,2,2,3,3};
-            int[] result = RemoveDuplicates(array);
-            foreach (int item in result)
+            //int[] array = new int[5] { 1,2,2,3,3};
+            //int[] result = RemoveDuplicates(array);
+            //foreach (int item in result)
+            //{
+            //    Console.WriteLine(item);
+            //}
+            #endregion
+
+            #region Question06 Asssignment02
+            //6. Given an array list , implement a function to remove all odd numbers from it.
+            List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            List<int> result = RemoveOddNumbers(list);
+            foreach (var item in result)
             {
                 Console.WriteLine(item);
             }
