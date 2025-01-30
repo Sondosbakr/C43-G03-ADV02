@@ -38,9 +38,27 @@ namespace Assignment02ADV
                     result.Add(list[i]);
             }
             return result;
-        } 
+        }
         #endregion
 
+        #region Question05 Assignment01
+        public static int FirstNonReapetedCharIndex(string str)
+        {
+            Dictionary<char, int> charcount = new Dictionary<char, int>();
+            foreach(char c in str)
+            {
+                if (charcount.ContainsKey(c))
+                    return charcount[c];
+                else
+                    charcount[c] = 1;
+            }
+
+            for(int i = 0; i < str.Length; i++)
+                if(charcount.ContainsKey(str[i]))
+                    return i;
+            return -1;
+        }
+        #endregion
 
         static void Main(string[] args)
         {
@@ -56,15 +74,22 @@ namespace Assignment02ADV
             #region Question03 Assignment01
             //You are given a list of integers. Your task is to find and return a new list
             //containing only the even numbers from the given list.
-            List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
-            List<int> result = GetEvenNumbers(list);
-            foreach (int item in result)
-            {
-                Console.WriteLine(item);
-            } 
+            //List<int> list = new List<int>() { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+            //List<int> result = GetEvenNumbers(list);
+            //foreach (int item in result)
+            //{
+            //    Console.WriteLine(item);
+            //} 
             #endregion
 
+            #region Question05 Assignment05
+            //Given a string, find the first non-repeated character in it and return its index.
+            //If there is no such character, return . Hint: you can use dictionary
+            string str = "SWSSIO";
+            int index = FirstNonReapetedCharIndex(str);
+            Console.WriteLine(index);
 
+            #endregion
 
 
 
